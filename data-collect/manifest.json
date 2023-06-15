@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "数据采集",
+    "description": "hao123数据采集",
+    "version": "1.0.0",
+    "background": {
+        "persistent": true,
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.hao123.com/*"],
+            "js": ["content.js"]
+        } 
+    ],
+    "browser_action": {
+        "default_title": "",
+        "default_icon": "image/logo.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": ["notifications"],
+    "icons": {
+        "16": "image/logo.png",
+        "32": "image/logo.png",
+        "48": "image/logo.png",
+        "128": "image/logo.png"
+    }
+}

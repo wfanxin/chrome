@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "翻译",
+    "description": "快捷翻译",
+    "version": "1.0.0",
+    "background": {
+        "scripts": [
+          "background.js"
+        ],
+        "persistent": true
+    },
+    "permissions": ["contextMenus"],
+    "browser_action": {
+        "default_icon": "image/logo.png"
+    },
+    "icons": {
+        "16": "image/logo.png",
+        "32": "image/logo.png",
+        "48": "image/logo.png"
+    }
+}
