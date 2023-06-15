@@ -9,7 +9,7 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://www.hao123.com/*"],
+            "matches": ["https://www.hao123.com/*", "http://www.hao123.com/*"],
             "js": ["content.js"]
         } 
     ],
@@ -18,7 +18,12 @@
         "default_icon": "image/logo.png",
         "default_popup": "popup.html"
     },
-    "permissions": ["notifications"],
+    "permissions": [
+        "notifications",
+        "<all_urls>",
+        "webRequest",
+        "webRequestBlocking"
+    ],
     "icons": {
         "16": "image/logo.png",
         "32": "image/logo.png",

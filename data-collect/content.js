@@ -1,1 +1,1 @@
-console.log("hao123我来了")
+console.log('加载content.js')
