@@ -5,12 +5,12 @@
     "version": "1.0.0",
     "background": {
         "persistent": true,
-        "scripts": ["background.js"]
+        "scripts": ["jquery.js", "background.js"]
     },
     "content_scripts": [
         {
-            "matches": ["https://www.hao123.com/*", "http://www.hao123.com/*"],
-            "js": ["content.js"]
+            "matches": ["*://www.hao123.com/*"],
+            "js": ["jquery.js", "content.js"]
         } 
     ],
     "browser_action": {
@@ -20,7 +20,7 @@
     },
     "permissions": [
         "notifications",
-        "<all_urls>",
+        "*://www.hao123.com/*",
         "webRequest",
         "webRequestBlocking"
     ],
