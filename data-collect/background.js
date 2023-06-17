@@ -1,6 +1,6 @@
-console.log('加载background.js')
-
 const request_url = []
+
+// 获取request请求数据
 chrome.webRequest.onBeforeRequest.addListener(function(details){
 	if (details.type === 'xmlhttprequest') {
 		let url = details.url.split('?')[0]
@@ -11,7 +11,8 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
 	}
 }, {urls:['<all_urls>']}, ['blocking'])
 
-chrome.runtime.onMessage.addListener(async (req, sender, sendResponse) => {
+// 监听sendMessage信息
+chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
 	let data = []
 	const url = request_url[req.data['url']]
 	if (url !== undefined) {
