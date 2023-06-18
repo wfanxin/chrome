@@ -10,7 +10,8 @@
     "content_scripts": [
         {
             "matches": ["*://www.hao123.com/*"],
-            "js": ["jquery.js", "content.js"]
+            "js": ["jquery.js", "content.js"],
+            "css": ["content.css"]
         } 
     ],
     "browser_action": {

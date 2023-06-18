@@ -15,12 +15,27 @@ window.onload = async () => {
 		})
 	}
 
-	// 页面获取
-	var link_arr = []
-	$(".js_site-item").each(function(index, data){
-		link_arr.push(data.innerText)
-	})
-	console.log('页面获取结果:', link_arr)
+	// 获取页面api请求接口列表
+	const apiList = await sendMessage('apiList')
+	let html = '<div class="apiList"><div class="apiTitle">页面数据获取</div><div class="apiContent"><div>页面内容<span class="apiBtn" url="">获取</span></div></div><div class="apiTitle">api接口数据获取</div><div class="apiContent">'
+	for (let i = 0; i < apiList.length; i++) {
+		html += '<div>'+apiList[i]+'<span class="apiBtn" url="'+apiList[i]+'">获取</span></div>'
+	}
+	html += '</div></div>'
+	$("body").append(html)
 
-	console.log('api/citymenu接口获取结果:', await sendMessage('api/citymenu'))
+	// 点击事件
+	$(".apiBtn").click(async function(){
+		const url = $(this).attr('url')
+		if (url === '') {
+			let link_arr = []
+			$(".js_site-item").each(function(index, data){
+				link_arr.push(data.innerText)
+			})
+			alert(JSON.stringify(link_arr))
+		} else {
+			const result = await sendMessage(url)
+			alert(JSON.stringify(result))
+		}
+	})
 }

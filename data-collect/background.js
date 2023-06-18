@@ -25,6 +25,8 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
 	            data = res
 	        }
 	    })
+	} else if (req.data['url'] === 'apiList'){
+		data = Object.keys(request_url)
 	}
     
     sendResponse(data)
