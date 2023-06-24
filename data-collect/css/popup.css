@@ -1,8 +1,54 @@
 body {
-	width: 150px;
+	width: 300px;
+	background: #ffffff;
+	border-radius: 5px;
+	margin: 0;
+	padding: 0;
 }
-.title {
+.login-box {
+	display: none;
+	padding: 10px;
+}
+.login-title {
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+}
+.login-input-line {
+	display: flex;
+	line-height: 35px;
+	margin: 15px 10px;
+}
+.login-input-label {
+	width: 40px;
+	text-align: right;
+	padding-right: 5px;
+}
+.login-input {
+	flex: 1;
+	border: 1px solid #DCDFE6;
+	outline: 0;
+	border-radius: 2px;
+	padding: 0 5px;
+}
+.login-btn-box {
+	width: 100%;
 	text-align: center;
 	margin: 20px 0;
+}
+.login-btn {
+	background: #409EFF;
+	color: #ffffff;
+	padding: 5px 10px;
+	border-radius: 3px;
 	font-size: 14px;
+	cursor: pointer;
+}
+.login-out-btn{
+	background: #F56C6C;
+	color: #ffffff;
+	padding: 5px 10px;
+	border-radius: 3px;
+	font-size: 14px;
+	cursor: pointer;
 }

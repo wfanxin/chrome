@@ -27,6 +27,8 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
 	    })
 	} else if (req.data['url'] === 'apiList'){
 		data = Object.keys(request_url)
+	} else if (req.data['url'] === 'token') {
+		data = localStorage.getItem('Collect-Token') // popup和background的localStorage数据是共用的
 	}
     
     sendResponse(data)

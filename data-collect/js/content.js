@@ -42,6 +42,11 @@ window.onload = async () => {
 		})
 	}
 
-	// 显示面板
-	showPanel()
+	// 请求token，用来判断是否已登录
+	const token = await sendMessage('token')
+
+	// 已登录，则显示面板
+	if (token) {
+		showPanel()
+	}
 }
