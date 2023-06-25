@@ -23,6 +23,7 @@ $('.login-out-btn').click(function() {
 const postLogin = function(name, password) {
 	if (name == 'admin' && password == '123456') {
 		showWelcome()
+		sendMessage('loginIn')
 		localStorage.setItem('Collect-Token', new Date().getTime())
 		new Notification('登录成功', { body: '', icon: '../image/logo.png' })
 	} else {
@@ -33,6 +34,7 @@ const postLogin = function(name, password) {
 // 退出接口请求
 const postLoginOut = function(token) {
 	showLogin()
+	sendMessage('loginOut')
 	localStorage.removeItem('Collect-Token')
 	new Notification('退出成功', { body: '', icon: '../image/logo.png' })
 }
@@ -49,6 +51,16 @@ const showWelcome = function() {
 	$('.login-in').css('display', 'none')
 }
 
+// 向content.js传递信息
+const sendMessage = function(type) {
+	chrome.tabs.query({}, function(tabs) {
+	    for (let i = 0; i < tabs.length; i++) {
+	    	if (tabs[i].url) { // 有权限的页面，即www.hao123.com
+	    		chrome.tabs.sendMessage(tabs[i].id, type)
+	    	}
+	    }
+	})
+}
 
 // 判断是否已经登录
 const token = localStorage.getItem('Collect-Token')

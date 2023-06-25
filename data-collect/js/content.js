@@ -42,6 +42,15 @@ window.onload = async () => {
 		})
 	}
 
+	// 监听tabs.sendMessage信息
+	chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
+		if (req === 'loginIn') { // 登录
+			showPanel()
+		} else if (req === 'loginOut') { // 退出
+			$('.apiList').remove()
+		}
+	})
+
 	// 请求token，用来判断是否已登录
 	const token = await sendMessage('token')
 

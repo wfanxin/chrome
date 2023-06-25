@@ -1,6 +1,6 @@
 const request_url = []
 
-// 获取request请求数据
+// 获取request请求数据（页面请求拦截器）
 chrome.webRequest.onBeforeRequest.addListener(function(details){
 	if (details.type === 'xmlhttprequest') {
 		let url = details.url.split('?')[0]
