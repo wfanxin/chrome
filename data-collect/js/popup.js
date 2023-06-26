@@ -53,12 +53,17 @@ const showWelcome = function() {
 
 // 向content.js传递信息
 const sendMessage = function(type) {
+	let isOpen = false
 	chrome.tabs.query({}, function(tabs) {
 	    for (let i = 0; i < tabs.length; i++) {
 	    	if (tabs[i].url) { // 有权限的页面，即www.hao123.com
+	    		isOpen = true
 	    		chrome.tabs.sendMessage(tabs[i].id, type)
 	    	}
 	    }
+	    if (type === 'loginIn' && !isOpen) { // 登录后发现没有打开，自动打开www.hao123.com
+			window.open('http://www.hao123.com')
+		}
 	})
 }
 
