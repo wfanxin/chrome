@@ -31,9 +31,10 @@ window.onload = async () => {
 			const url = $(this).attr('url')
 			if (url === '') {
 				let link_arr = []
-				$(".js_site-item").each(function(index, data){
-					link_arr.push(data.innerText)
-				})
+				const liList = document.querySelectorAll('li.js_site-item  > div.inline-block-wrapper > a.sitelink.icon-site')
+				for (let i = 0; i < liList.length; i++) {
+					link_arr.push(liList[i].text)
+				}
 				alert(JSON.stringify(link_arr))
 			} else {
 				const result = await sendMessage(url)
